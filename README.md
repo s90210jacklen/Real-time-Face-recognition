@@ -5,10 +5,11 @@
 - Face Verification (人臉驗證) : 
   - 給予輸入image, name/ID
   - 輸出是否為此人
-  - 視為1:1 matching problem
+  - 視為 1:1 matching problem
 
 - Face Recognition (人臉辨識) : 
   - 擁有K個人物的Database
   - 給予Input image
   - 輸出ID, if (image為K個人物中的其中一個) </br>
   無法辨識此人, if (image不為K個人物中任何一個)
+  - 視為 1:K matching problem
