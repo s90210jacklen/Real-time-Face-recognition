@@ -6,6 +6,8 @@
   - 給予輸入image, name/ID
   - 輸出是否為此人
   - 視為 1:1 matching problem
+  
+  eg: 手機的人臉解鎖
 
 - Face Recognition (人臉辨識) : 
   - 擁有K個人物的Database
@@ -13,3 +15,6 @@
   - 輸出ID, if (image為K個人物中的其中一個) </br>
   無法辨識此人, if (image不為K個人物中任何一個)
   - 視為 1:K matching problem
+  
+  eg: 某些公司所使用的人臉辨識員工通行閘門
+   
