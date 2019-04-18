@@ -19,6 +19,9 @@
   e.g.使用的人臉辨識的員工通行閘門
    
 # Concept
-![one shot](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/one-shot%20learning.png)
-- **One Shot Learning**
+
+- **One Shot Learning**</br>
+
 假定某公司內的Database共有4個人員的照片各一張，當有其中一位人員經過系統前的鏡頭並被捕捉到臉孔後，儘管Database只有一張此人的照片，系統依然能辨認出此臉孔為公司裡的員工
+
+![one shot](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/one-shot%20learning.png)
