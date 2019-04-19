@@ -19,8 +19,9 @@
   e.g.使用的人臉辨識的員工通行閘門
    
 # Concept
+在Face Recognition(人臉辨識)的應用中經常要做到只靠一張照片就能辨認一個人，但深度學習(Deep Learning)的演算法在只有一筆訓練資料的情況下效果會很差，所以在人臉辨識中必須解決**One Shot Learning**(單樣本學習)的問題
 
-- **One Shot Learning**</br>
+- **One Shot Learning (單樣本學習)**</br>
 
 假定某公司內的Database共有4位人員的照片各一張，當有其中一位人員經過系統前的鏡頭並被捕捉到臉孔後，儘管Database只有一張此人的照片，系統依然能辨認出此臉孔為公司裡的員工
 
