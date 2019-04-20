@@ -28,3 +28,7 @@
 ![one shot](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/one-shot%20learning_1.png)
 
 ![one shot2](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/one-shot%20learning_2.png)
+
+- **Similarity Function**</br>
+為了達到One Shot Learning (單樣本學習)這樣的目標，必須讓NN(Neural Network)去學習一個函數d，這個函數d的作用在於：</br>
+**d(img1, img2)** : 給予兩張照片，輸出這兩張照片的相異程度
