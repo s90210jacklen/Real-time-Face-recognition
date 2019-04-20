@@ -34,6 +34,6 @@
 **d(img1, img2)** : 給予兩張照片，輸出這兩張照片的相異程度
   - 如果兩張照片是同一個人，則輸出一個較小的數字
   - 如果兩張照片是不同人，則輸出一個較大的數字
-此外，需定義一Hyperparameter(超參數)「tau」
-  - if d(img1, img2) ≦  tau　　 →  Same
-  - if d(img1, img2) >  tau　　 →   Different
+此外，需定義一Hyperparameter(超參數)**「tau」**
+  - if d(img1, img2) ≦  tau　　 →  **Same**
+  - if d(img1, img2) >  tau　　 →   **Different**
