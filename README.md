@@ -25,6 +25,6 @@
 
 假定某公司內的Database共有4位人員的照片各一張，當有其中一位人員經過系統前的鏡頭並被捕捉到臉孔後，儘管Database只有一張此人的照片，系統依然能辨認出此臉孔為公司裡的員工，相反的，若不為公司內人員則無法辨識此人
 
-![one shot](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/one-shot%20learning.png)
+![one shot](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/one-shot%20learning_1.png)
 
 ![one shot2](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/one-shot%20learning_2.png)
