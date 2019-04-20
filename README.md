@@ -1,5 +1,5 @@
 # Real-time Face recognition 即時人臉辨識 </br> (Using Keras and Tensorflow)
-分別來自《DeepFace: Closing the gap to human-level performance in face verification》(2014)與《FaceNet: A Unified Embedding for Face Recognition and Clustering》(2015)這兩篇paper中提出的方法，而外利用OpenCV來擷取Webcam影像並使用其提供的Haar Cascade進行人臉檢測(Face Detection)
+分別來自《DeepFace: Closing the gap to human-level performance in face verification》(2014)與《FaceNet: A Unified Embedding for Face Recognition and Clustering》(2015)這兩篇paper提出的方法，而外利用OpenCV來擷取Webcam影像並使用其提供的Haar Cascade進行人臉檢測(Face Detection)
 
 在Face Recognition(人臉辨識)的問題上，通常會再進一步分成兩個種類 :
 - **Face Verification (人臉驗證) :** 
@@ -7,7 +7,7 @@
   - 輸出是否為此人
   - 視為 1:1 matching problem
   
-  e.g.手機的人臉解鎖
+  e.g. 手機的人臉解鎖
 
 - **Face Recognition (人臉辨識) :** 
   - 擁有K個人物的Database
@@ -16,7 +16,7 @@
   無法辨識此人, if (image不為K個人物中任何一個)
   - 視為 1:K matching problem
   
-  e.g.使用的人臉辨識的員工通行閘門
+  e.g. 使用的人臉辨識的員工通行閘門
    
 # Concept
 在Face Recognition(人臉辨識)的應用中經常要做到只靠一張照片就能辨認一個人，但深度學習(Deep Learning)的演算法在只有一筆訓練資料的情況下效果會很差，所以在人臉辨識中必須解決**One Shot Learning**(單樣本學習)的問題
@@ -30,5 +30,10 @@
 ![one shot2](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/one-shot%20learning_2.png)
 
 - **Similarity Function**</br>
-為了達到One Shot Learning (單樣本學習)這樣的目標，必須讓NN(Neural Network)去學習一個函數d，這個函數d的作用在於：</br>
+為了達到One Shot Learning (單樣本學習)這樣的目標，我們希望讓NN(Neural Network)去學習一個函數**d**：</br>
 **d(img1, img2)** : 給予兩張照片，輸出這兩張照片的相異程度
+  - 如果兩張照片是同一個人，則輸出一個較小的數字
+  - 如果兩張照片是不同人，則輸出一個較大的數字
+此外，需定義一Hyperparameter(超參數)「tau」
+  - if d(img1, img2) ≦　tau　: Same
+  - if d(img1, img2) ＞　tau　: Different
