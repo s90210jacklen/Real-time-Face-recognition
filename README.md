@@ -35,5 +35,5 @@
   - 如果兩張照片是同一個人，則輸出一個較小的數字
   - 如果兩張照片是不同人，則輸出一個較大的數字
 此外，需定義一Hyperparameter(超參數)「tau」
-  - if d(img1, img2) ≦　tau　: Same
-  - if d(img1, img2) ＞　tau　: Different
+  - if d(img1, img2) ≦  tau　　 → Same
+  - if d(img1, img2) ＞  tau　　 →  Different
