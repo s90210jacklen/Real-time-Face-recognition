@@ -26,12 +26,12 @@
 假定某公司內的Database共有4位人員的照片各一張，當有其中一位人員經過系統前的鏡頭並被捕捉到臉孔後，儘管Database只有一張此人的照片，系統依然能辨認出此臉孔為公司裡的員工，相反的，若不為公司內人員則無法辨識此人
 
 
-- **Similarity Function**</br>
+- **Similarity Function (相似度函數)**</br>
 為了達到One Shot Learning (單樣本學習)這樣的目標，我們希望讓NN(Neural Network)去學習一個函數**d**</br></br>
 **d(img1, img2)** : 給予兩張照片，輸出這兩張照片的相異程度
   - 如果兩張照片是同一個人，則輸出一個較小的數字
   - 如果兩張照片是不同人，則輸出一個較大的數字</br>
-- 此外，需定義一Hyperparameter(超參數)**「τ」**
+此外，需定義一Hyperparameter(超參數)**「τ」**
   - if d(img1, img2) ≦  τ　　 →  **Same**
   - if d(img1, img2) >  τ　　 →   **Different**</br>
   如此一來就解決了Face Verification (人臉驗證)1:1 matching的問題
