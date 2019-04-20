@@ -32,8 +32,8 @@
   - 如果兩張照片是同一個人，則輸出一個較小的數字
   - 如果兩張照片是不同人，則輸出一個較大的數字</br>
 此外，需定義一Hyperparameter(超參數)**「τ」**
-  - if d(img1, img2) ≦  τ　　 →  **Same**
-  - if d(img1, img2) >  τ　　 →   **Different**</br>
+  - if d(img1, img2) ≦  τ　→  **Same**
+  - if d(img1, img2) >  τ　→   **Different**</br>
   如此一來就解決了Face Verification (人臉驗證)1:1 matching的問題
   
 ![one shot](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/one-shot_learning_1.png)
