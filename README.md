@@ -54,7 +54,7 @@
 ![L2_distance](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/L2%20distance.png)
 
   - 總結來說，在Siamese network的架構我們希望能學出一種encoding(編碼)方式，更準確來說是希望學習出參數使得我們能達成以下的目標
-  ![define encoding](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/Define%20decoding.png)
+  ![define encoding](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/Define_decoding.png)
  在上述的目標中，改變ConvNet每一層的參數就會得到不同的編碼，所以我們可以利用反向傳播(Backpropagation)來更改這些參數以達到上列的目標
 
 
