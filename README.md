@@ -43,7 +43,7 @@
 
 - **Siamese network (孿生網路)**</br>
 
-  - 使用Siamese network的架構來達成上述Similarity Function的效果，其實就是使用兩個常見的ConvNet的網路架構，一樣經由Convolution(卷積)、Pooling(池化)、Fully connected layers(全連接層)最後得到一個帶有128個數字的特徵向量(feature vector)，而這個過程稱為encoding(編碼)，而這個兩個網路擁有相同的參數與權重
+  - 使用Siamese network的架構來達成上述Similarity Function的效果，其實就是使用兩個常見的ConvNet的網路架構，這個兩個網路擁有相同的參數與權重，一樣經由Convolution(卷積)、Pooling(池化)、Fully connected layers(全連接層)最後得到一個帶有128個數字的特徵向量(feature vector)，而這個過程稱為encoding(編碼)
   
 ![arch](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/arch.png)
   - 將兩張圖片(這裡稱x(1)與x(2))放入這兩個ConvNet後得出編碼後的兩個特徵向量(feature vector)
@@ -55,5 +55,10 @@
 
   - 總結來說，在Siamese network的架構我們希望能學出一種encoding(編碼)方式，更準確來說是希望學習出參數使得我們能達成以下的目標
   ![define encoding](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/Define%20decoding.png)
+ 在上述的目標中，改變ConvNet每一層的參數就會得到不同的編碼，所以我們可以利用反向傳播(Backpropagation)來更改這些參數以達到上列的目標
 
+
+
+- **Triplet Loss (三元組損失)**</br>
+為了能夠學習參數來得到良好的encoding(編碼)，需要有一個損失函數(Loss function)來幫助訓練與學習模型中的參數，在《FaceNet: A Unified Embedding for Face Recognition and Clustering》所使用的損失為**Triplet Loss (三元組損失)**
 
