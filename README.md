@@ -34,6 +34,7 @@
 **此外，需定義一Hyperparameter(超參數)「τ」**
   - if d(img1, img2) ≦  τ　→  **Same**
   - if d(img1, img2) >  τ　→   **Different**</br>
+  
   如此一來就解決了Face Verification (人臉驗證)1:1 matching的問題
   
 ![one shot](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/one-shot_learning_1.png)
@@ -43,10 +44,11 @@
 - **Siamese network (孿生網路)**</br>
   - 使用Siamese network的架構來達成上述Similarity Function的效果，其實就是使用兩個常見的ConvNet的網路架構，一樣經由Convolution(卷積)、Pooling(池化)、Fully connected layers(全連接層)最後得到一個帶有128個數字的特徵向量(feature vector)，而這個過程稱為encoding(編碼)
   - 將兩張圖片(這裡稱x(1)與x(2))放入這兩個ConvNet後得出編碼後的兩個特徵向量(feature vector)
-  - 為了算出兩張圖片相似度，方式為將這兩個經由編碼所獲得的128維特徵向量f(x1)、f(x2)相減並取2範數(2-Norm)
+  - 為了算出兩張圖片相似度，方式為將這兩個經由編碼所獲得的128維特徵向量f(x1)、f(x2)相減並取2範數(2-Norm)，這樣我們就透過Siamese network學習出我們所想要的Similarity Function(相似度函數)
   ![different](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/different.png)
   
-  ![L2_distance](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/L2_distance.png)
+Note: 2範數(2-Norm)又稱為為歐基里德範數(Euclidean norm)，是以歐式距離的方式作為基礎，計算出向量的長度或大小
+![L2_distance](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/L2_distance.png)
 
 
 
