@@ -48,7 +48,7 @@
   ![different](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/different.png)
   
 Note: 2範數(2-Norm)又稱為為歐基里德範數(Euclidean norm)，是以歐式距離的方式作為基礎，計算出向量的長度或大小
-![L2_distance](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/L2_distance.png)
+![L2_distance](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/L2%20distance.png)
 
 
 
