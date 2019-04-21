@@ -42,8 +42,10 @@
 ![one shot2](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/one-shot_learning_2.png)
 
 - **Siamese network (孿生網路)**</br>
-![arch](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/arch.png)
+
   - 使用Siamese network的架構來達成上述Similarity Function的效果，其實就是使用兩個常見的ConvNet的網路架構，一樣經由Convolution(卷積)、Pooling(池化)、Fully connected layers(全連接層)最後得到一個帶有128個數字的特徵向量(feature vector)，而這個過程稱為encoding(編碼)，而這個兩個網路擁有相同的參數與權重
+  
+![arch](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/arch.png)
   - 將兩張圖片(這裡稱x(1)與x(2))放入這兩個ConvNet後得出編碼後的兩個特徵向量(feature vector)
   - 為了算出兩張圖片相似度，方式為將這兩個經由編碼所獲得的128維特徵向量f(x1)、f(x2)相減並取2範數(2-Norm)，這樣我們就透過Siamese network學習出我們所想要的Similarity Function(相似度函數)
   ![different](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/different.png)
