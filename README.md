@@ -53,5 +53,7 @@
 **Note**: 2範數(2-Norm)又稱為為歐基里德範數(Euclidean norm)，是以歐式距離的方式作為基礎，計算出向量的長度或大小
 ![L2_distance](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/L2%20distance.png)
 
+  - 總結來說，在Siamese network的架構我們希望能學出一種encoding(編碼)，更準確來說是希望學習出參數使得達成的目標
+  ![define encoding](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/Define%20decoding.png)
 
 
