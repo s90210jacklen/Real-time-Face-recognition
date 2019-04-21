@@ -60,5 +60,5 @@
 
 
 - **Triplet Loss (三元組損失)**</br>
-為了能夠學習參數來得到良好的encoding(編碼)，需要有一個損失函數(Loss function)來幫助訓練與學習模型中的參數，在《FaceNet: A Unified Embedding for Face Recognition and Clustering》所使用的損失為**Triplet Loss (三元組損失)**
+在NN(Neural Network)的訓練中，都需要一個損失函數(Loss function)作為最小化(minimize)目標，而在Face recognition的應用中為了能夠學習參數來得到良好的encoding(編碼)，《FaceNet: A Unified Embedding for Face Recognition and Clustering》這篇論文提出一種有效的損失函數稱為**Triplet Loss (三元組損失)**
 
