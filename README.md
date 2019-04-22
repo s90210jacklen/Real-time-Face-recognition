@@ -62,11 +62,11 @@
 - **Triplet Loss (三元組損失)**</br>
 在NN(Neural Network)的訓練中，都需要一個損失函數(Loss function)作為最小化(minimize)目標，而在Face recognition的應用中為了能夠學習參數來得到良好的encoding(編碼)，《FaceNet: A Unified Embedding for Face Recognition and Clustering》這篇論文提出一種有效的損失函數稱為**Triplet Loss (三元組損失)**
 
-   - 在Triplet Loss中會有Anchor、Positive、Negative這三種照片
-   - Positive為與Anchor**同個人**的照片
-   - Negative則為**不同人**的照片
-   - 我們需要比較Anchor分別與Positive和Negative一組的兩對的照片
-   - Anchor與Positive的距離(編碼)較近，與Negative的距離(編碼)較遠
+    - 在Triplet Loss中會有Anchor、Positive、Negative這三種照片
+    - Positive為與Anchor**同個人**的照片
+    - Negative則為**不同人**的照片
+    - 我們需要比較Anchor分別與Positive和Negative一組的兩對的照片
+    - Anchor與Positive的距離(編碼)較近，與Negative的距離(編碼)較遠
   
 也就是說，我們希望神經網路的參數所造成的編碼能夠使Anchor與Positive的距離**小於等於**Anchor與Negative的距離這樣的性質</br>
 
