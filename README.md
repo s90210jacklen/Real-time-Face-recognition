@@ -72,10 +72,10 @@
 
 ![Learning objective](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/Learning%20objective.png)
 
-   ⋅⋅⋅* 在上圖中，Anchor、Positive、Negative分別簡寫為A、P、N，
-   ⋅⋅⋅* 如果f變成**零函數**會將每個向量的輸出都變成零，就是所謂的**trivial solutions**，則0 - 0 ≦ 0 這樣就很容易滿足這個式子，會讓NN學不到我們的目標
-   ⋅⋅⋅* 為了不讓NN將編碼學習成零函數，我們希望兩對的照片的差距不只小於等於零，還要**比零還小一些**，而外引進一個Hyperparameter超參數**alpha**，這個alpha稱為margin(邊距)，我們讓≦左邊的式子小於負alpha，習慣上會將alpha移到式子左邊
-   ⋅⋅⋅* 而margin(邊距)用意即是拉開d(A,P)與d(A,N)這兩對的差距，就是把這兩對推開，**遠離彼此**</br>
+⋅⋅⋅* 在上圖中，Anchor、Positive、Negative分別簡寫為A、P、N，
+- 如果f變成**零函數**會將每個向量的輸出都變成零，就是所謂的**trivial solutions**，則0 - 0 ≦ 0 這樣就很容易滿足這個式子，會讓NN學不到我們的目標
+- 為了不讓NN將編碼學習成零函數，我們希望兩對的照片的差距不只小於等於零，還要**比零還小一些**，而外引進一個Hyperparameter超參數**alpha**，這個alpha稱為margin(邊距)，我們讓≦左邊的式子小於負alpha，習慣上會將alpha移到式子左邊
+- 而margin(邊距)用意即是拉開d(A,P)與d(A,N)這兩對的差距，就是把這兩對推開，**遠離彼此**</br>
   eg. 假設margin = 0.2 ,表示若d(A,P)=0.5 則d(A,N)至少0.7才符合上述的式子，若d(A,N)為0.6就不符合，因為兩組的差距不夠大
   
 - **Loss Function (損失函數)**
