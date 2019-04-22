@@ -83,7 +83,7 @@ Triplet Loss定義在3張一組的圖片A、P、N上，則損失函數則可以�
 ![Loss Function](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/total%20cost.png)</br>
 
 這個max函數的用意在於，若括號的左邊項 ≤ 0則損失就為零，若左邊項 ≥ 0則損失變成≥零；而我們是希望損失越小越好，所以只要左邊項≤ 0不管負多少，就能把損失推向零</br>
-最後總體的Cost Function就是將損失加總起來
+- 最後總體的Cost Function就是將損失加總起來
 ![cost Function](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/cost_function.png)
 
   
