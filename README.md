@@ -47,7 +47,7 @@
   
 ![arch](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/arch.png)
   - 將兩張圖片(這裡稱x(1)與x(2))放入這兩個ConvNet後得出編碼後的兩個特徵向量(feature vector)
-  - 為了算出兩張圖片相似度，方式為將這兩個經由編碼所獲得的128維特徵向量f(x1)、f(x2)相減並取2範數(2-Norm)，這樣我們就透過Siamese network學習出我們所想要的Similarity Function(相似度函數)
+  - 為了算出兩張圖片相似度，方式為將這兩個經由編碼所獲得的128維特徵向量f(x1)、f(x2)相減並取2範數(2-Norm)的平方，這樣我們就透過Siamese network學習出我們所想要的Similarity Function(相似度函數)
   ![different](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/different.png)
   
 **Note**: 2範數(2-Norm)又稱為為歐基里德範數(Euclidean norm)，是以歐式距離的方式作為基礎，計算出向量的長度或大小
@@ -68,8 +68,18 @@
   - 我們需要比較Anchor分別與Positive和Negative一組的兩對的照片
   - Anchor與Positive的距離(編碼)較近，與Negative的距離(編碼)較遠
   
-也就是說，我們希望神經網路的參數所造成的編碼能夠使Anchor與Positive的距離小於等於Anchor與Negative的距離這樣的性質</br>
+也就是說，我們希望神經網路的參數所造成的編碼能夠使Anchor與Positive的距離**小於等於**Anchor與Negative的距離這樣的性質</br>
 
 ![Learning objective](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/Learning%20objective.png)
+
+  - 在上圖中，Anchor、Positive、Negative分別簡寫為A、P、N，
+  - 如果f變成**零函數**會將每個向量的輸出都變成零，就是所謂的**trivial solutions**，則0 - 0 ≦ 0 這樣就很容易滿足這個式子，會讓NN學不到我們的目標
+  - 為了不讓NN將編碼學習成零函數，我們希望兩對的照片的差距不只小於等於零，還要**比零還小一些**，而外引進一個Hyperparameter超參數**alpha**，這個alpha稱為margin(邊距)，我們讓≦左邊的式子小於負alpha，習慣上會將alpha移到式子左邊
+  - 而margin(邊距)用意即是拉開d(A,P)與d(A,N)這兩對的差距，就是把這兩對推開，**遠離彼此**</br>
+  eg. 假設margin = 0.2 ,表示若d(A,P)=0.5 則d(A,N)至少0.7才符合上述的式子，若d(A,N)為0.6就不符合，因為兩組的差距不夠大
+  
+- **Loss Function (損失函數)**
+Triplet Loss定義在3張一組的圖片A、P、N上，則損失函數則可以定義成:
+![Loss Function](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/total%20cost.png)
   
   
