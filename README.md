@@ -32,7 +32,7 @@
   - 如果兩張照片是同一個人，則輸出一個較小的數字
   - 如果兩張照片是不同人，則輸出一個較大的數字</br>
 **此外，需定義一Hyperparameter(超參數)「τ」**
-  - if d(img1, img2) ≦  τ　→  **Same**
+  - if d(img1, img2) ≤  τ　→  **Same**
   - if d(img1, img2) >  τ　→   **Different**</br>
   
   如此一來就解決了Face Verification (人臉驗證)1:1 matching的問題
@@ -73,13 +73,17 @@
 ![Learning objective](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/Learning%20objective.png)
 
 - 在上圖中，Anchor、Positive、Negative分別簡寫為A、P、N
-  - 如果f變成**零函數**會將每個向量的輸出都變成零，就是所謂的**trivial solutions**，則0 - 0 ≦ 0 這樣就很容易滿足這個式子，會讓NN學不到我們的目標
-  - 為了不讓NN將編碼學習成零函數，我們希望兩對的照片的差距不只小於等於零，還要**比零還小一些**，而外引進一個Hyperparameter超參數**alpha**，這個alpha稱為margin(邊距)，我們讓≦左邊的式子小於負alpha，習慣上會將alpha移到式子左邊
+  - 如果f變成**零函數**會將每個向量的輸出都變成零，就是所謂的**trivial solutions**，則0 - 0 ≤ 0 這樣就很容易滿足這個式子，會讓NN學不到我們的目標
+  - 為了不讓NN將編碼學習成零函數，我們希望兩對的照片的差距不只小於等於零，還要**比零還小一些**，而外引進一個Hyperparameter超參數**alpha**，這個alpha稱為margin(邊距)，我們讓≤這個符號左邊的式子小於負alpha，習慣上會將alpha移到式子左邊
   - 而margin(邊距)用意即是拉開d(A,P)與d(A,N)這兩對的差距，就是把這兩對推開，**遠離彼此**</br>
   eg. 假設margin = 0.2 ,表示若d(A,P)=0.5 則d(A,N)至少0.7才符合上述的式子，若d(A,N)為0.6就不符合，因為兩組的差距不夠大
   
-- **Loss Function (損失函數)**
+- **Loss Function (損失函數)**</br>
 Triplet Loss定義在3張一組的圖片A、P、N上，則損失函數則可以定義成:
-![Loss Function](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/total%20cost.png)
-  
+![Loss Function](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/total%20cost.png)</br>
+
+這個max函數的用意在於，若括號的左邊項 ≤ 0則損失就為零，若左邊項 ≥ 0則損失變成≥零；而我們是希望損失越小越好，所以只要左邊項≤ 0不管負多少，就能把損失推向零</br>
+而總體的Cost Function就是將損失加總起來
+![cost Function](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/cost%20function.png)
+
   
