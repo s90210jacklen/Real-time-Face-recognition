@@ -106,7 +106,7 @@ Triplet Loss定義在3張一組的圖片A、P、N上，則損失函數則可以�
 
 ![cost Function](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/cost_function.png)
 
-**Note:** 設定有10000張訓練圖片，分別來自1000個不同的人(每人約10張圖片)來構成我們的資料集，若每個人只有一張照片這樣就無法順利挑出Anchor與Positive，但是當NN訓練完成後就可以將系統用在One-shot Learning的問題，對於你想辨識的人，你可能只有他的一張照片也能順利辨識出此人。
+**Note:** 假定有10000張訓練圖片，分別來自1000個不同的人(每人約10張圖片)才能構成我們的資料集，若每個人只有一張照片這樣就無法順利挑出Anchor與Positive，但是當NN訓練完成後就可以將系統用在One-shot Learning的問題，對於你想辨識的人，你可能只有他的一張照片也能順利辨識出此人。
 
 - **Choosing the triplets A, P, N**</br>
   - 在訓練資料中，Triplets(三元組)樣本的選擇會是一個問題，因為在上述學習目標 **d(A,P) + α ≤ d(A,N)** 中，若只按照要求隨機的選擇同一個人的照片A與P
@@ -126,5 +126,11 @@ eg: With Tensorflow as backend
 ```
 
 # Result
+- 利用OpenCV的Haar Cascade分類器進行人臉偵測(Face detection)</br></br>
 ![Output](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/output.png)
+
+- 偵測出人臉後使用預訓練的FaceNet來進行encoding並計算距離，辨識從Webcam讀取的影像是否為資料庫中的人物
+  - 若距離**小於0.7**則回傳資料庫內對應的人名與印出字串並發出語音"Welcome (someone), have a nice day!"
+  - 若不是則繼續偵測人臉並計算當下影像的編碼與距離
+![output distance](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/output%20distance.png)  
 
