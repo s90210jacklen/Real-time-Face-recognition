@@ -1,4 +1,4 @@
-# Real-time Face recognition 即時人臉辨識 </br> (Using Keras and Tensorflow)
+# Real-time Face recognition 即時人臉辨識 </br> (Using Keras and Tensorflow and OpenCV)
 分別來自《DeepFace: Closing the gap to human-level performance in face verification》(2014)與《FaceNet: A Unified Embedding for Face Recognition and Clustering》(2015)這兩篇paper提出的方法，而外利用OpenCV來擷取Webcam影像並使用其提供的Haar Cascade進行人臉檢測(Face Detection)
 
 在Face Recognition(人臉辨識)的問題上，通常會再進一步分成兩個種類 :
@@ -112,3 +112,18 @@ Triplet Loss定義在3張一組的圖片A、P、N上，則損失函數則可以�
 和不同人照片A與N，則這個不等式很容易就被滿足，因為隨機挑兩個人的照片有很大的機率使得A與N差異遠大於A與P，這會使得NN無法學習有效的參數
 
   - 因此，要建立訓練集的話必須挑選那種很難訓練的A,P和N，因為目標是讓所有Triplets(三元組)滿足**d(A,P) + α ≤ d(A,N)** 這個不等式，而很難訓練的Triplets(三元組)的意思就是你所挑選的A,P和N會讓 **d(A,P)≈ d(A,N)** ，如此一來NN在學習的時候就必須花更大的力氣嘗試讓**d(A,N)往上推**或讓**d(A,P)往下掉** ，推開彼此以達到相隔α的邊距，這樣的效果會讓你的學習演算法更效率；反之，若隨便選會導致很多的Triplets(三元組)都解起來很簡單，Gradient descent(梯度下降法)就不會再做任何事，因為你的NN早已把問題都做對了，在這部分在《FaceNet: A Unified Embedding for Face Recognition and Clustering》這篇論文有更詳細的說明
+  
+- **Face detection (人臉偵測)**</br>
+在人臉偵測的部分使用OpenCV的Haar Cascade分類器，選擇的為人臉分類器[haarcascade_frontalface_default.xml](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/haarcascade_frontalface_default.xml)
+
+# Usage
+
+**On Windows**
+```bash
+eg: With Tensorflow as backend
+> python facenet.py 
+```
+
+# Result
+[Output](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/output.png)
+
