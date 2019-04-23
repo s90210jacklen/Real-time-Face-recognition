@@ -77,6 +77,23 @@
   - 為了不讓NN將編碼學習成零函數，我們希望兩對的照片的差距不只小於等於零，還要**比零還小一些**，而外引進一個超參數(Hyperparameter)**α**，這個α稱為margin(邊距)，我們讓≤這個符號左邊的式子小於負α，習慣上會將α移到式子左邊
   - 而margin(邊距)用意即是拉開d(A,P)與d(A,N)這兩對的差距，就是把這兩對推開，**盡量的遠離彼此**</br>
   eg. 假設margin = 0.2 ,表示若d(A,P)=0.5 則d(A,N)至少0.7才符合上述的式子，若d(A,N)為0.6就不符合，因為兩組的差距不夠大
+  - Triplet Loss的實現如下
+  ```python
+  def triplet_loss(y_true, y_pred, alpha = 0.3):
+  
+    anchor, positive, negative = y_pred[0], y_pred[1], y_pred[2]
+    計算anchor和positive的編碼(距離)
+    # Step 1: 計算anchor和positive的編碼(距離)
+    pos_dist = tf.reduce_sum(tf.square(tf.subtract(anchor, positive)), axis=-1)
+    # Step 2: 計算anchor和negative的編碼(距離)
+    neg_dist = tf.reduce_sum(tf.square(tf.subtract(anchor, negative)), axis=-1)
+    # Step 3: 將先前計算出的距離相減並加上邊距alpha
+    basic_loss = tf.add(tf.subtract(pos_dist, neg_dist), alpha)
+    # Step 4: 將上述計算出的損失與零取最大值，再將所有樣本加總起來
+    loss = tf.reduce_sum(tf.maximum(basic_loss, 0.0))
+    
+    return loss
+  ```
   
 - **Loss Function (損失函數)**</br>
 Triplet Loss定義在3張一組的圖片A、P、N上，則損失函數則可以定義成:
