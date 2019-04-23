@@ -125,5 +125,5 @@ eg: With Tensorflow as backend
 ```
 
 # Result
-[Output](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/output.png)
+![Output](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/output.png)
 
