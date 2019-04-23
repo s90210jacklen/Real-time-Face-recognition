@@ -50,7 +50,7 @@
    - 為了算出兩張圖片相似度，方式為將這兩個經由編碼所獲得的128維特徵向量f(x1)、f(x2)相減並取2範數(2-Norm)的平方，這樣我們就透過Siamese network學習出我們所想要的Similarity Function(相似度函數)
   ![different](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/different.png)
   
-**Note**: 2範數(2-Norm)又稱為為歐基里德範數(Euclidean norm)，是以歐式距離的方式作為基礎，計算出向量的長度或大小
+**Note:** 2範數(2-Norm)又稱為為歐基里德範數(Euclidean norm)，是以歐式距離的方式作為基礎，計算出向量的長度或大小
 ![L2_distance](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/L2%20distance.png)
 
   - 總結來說，在Siamese network的架構我們希望能學出一種encoding(編碼)方式，更準確來說是希望學習出參數使得我們能達成以下的目標
@@ -74,8 +74,8 @@
 
 - 在上圖中，Anchor、Positive、Negative分別簡寫為A、P、N
   - 如果f變成**零函數**會將每個向量的輸出都變成零，就是所謂的**trivial solutions**，則0 - 0 ≤ 0 這樣就很容易滿足這個式子，會讓NN學不到我們的目標
-  - 為了不讓NN將編碼學習成零函數，我們希望兩對的照片的差距不只小於等於零，還要**比零還小一些**，而外引進一個Hyperparameter超參數**alpha**，這個alpha稱為margin(邊距)，我們讓≤這個符號左邊的式子小於負alpha，習慣上會將alpha移到式子左邊
-  - 而margin(邊距)用意即是拉開d(A,P)與d(A,N)這兩對的差距，就是把這兩對推開，**遠離彼此**</br>
+  - 為了不讓NN將編碼學習成零函數，我們希望兩對的照片的差距不只小於等於零，還要**比零還小一些**，而外引進一個Hyperparameter超參數**α**，這個α稱為margin(邊距)，我們讓≤這個符號左邊的式子小於負α，習慣上會將α移到式子左邊
+  - 而margin(邊距)用意即是拉開d(A,P)與d(A,N)這兩對的差距，就是把這兩對推開，**盡量的遠離彼此**</br>
   eg. 假設margin = 0.2 ,表示若d(A,P)=0.5 則d(A,N)至少0.7才符合上述的式子，若d(A,N)為0.6就不符合，因為兩組的差距不夠大
   
 - **Loss Function (損失函數)**</br>
@@ -83,7 +83,15 @@ Triplet Loss定義在3張一組的圖片A、P、N上，則損失函數則可以�
 ![Loss Function](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/total%20cost.png)</br>
 
 這個max函數的用意在於，若括號的左邊項 ≤ 0則損失就為零，若左邊項 ≥ 0則損失變成≥零；而我們是希望損失越小越好，所以只要左邊項≤ 0不管負多少，就能把損失推向零</br>
-- 最後總體的Cost Function就是將損失加總起來
+
+- **Cost functionb (成本函數)**</br>
+將訓練資料裡一組三張圖片的損失加總起來作為整體NN的總成本(Total cost)，並利用Gradient descent(梯度下降法)來去訓練NN最小化成本
 ![cost Function](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/cost_function.png)
 
-  
+**Note:** 設定有10000張訓練圖片，分別來自1000個不同的人(每人約10張圖片)來構成我們的資料集，若每個人只有一張照片這樣就無法順利挑出Anchor與Positive，但是當NN訓練完成後就可以將系統用在One-shot Learning的問題，對於你想辨識的人，你可能只有他的一張照片也能順利辨識出此人。
+
+- **Choosing the triplets A, P, N**</br>
+  - 在訓練資料中，Triplets(三元組)樣本的選擇會是一個問題，因為在上述學習目標 **d(A,P) + α ≤ d(A,N)** 中，若只按照要求隨機的選擇同一個人的照片A與P
+和不同人照片A與N，則這個不等式很容易就被滿足，因為隨機挑兩個人的照片有很大的機率使得A與N差異遠大於A與P，這會使得NN無法學習有效的參數
+
+  - 因此，要建立訓練集的話必須挑選那種很難訓練的A,P和N，因為目標是讓所有Triplets(三元組)滿足**d(A,P) + α ≤ d(A,N)** 這個不等式，而很難訓練的Triplets(三元組)的意思就是你所挑選的A,P和N會讓 **d(A,P)≈ d(A,N)** ，如此一來NN在學習的時候就必須花更大的力氣嘗試讓**d(A,N)往上推**或讓**d(A,P)往下掉** ，推開彼此以達到相隔α的邊距，這樣的效果會讓你的學習演算法更效率；反之，若隨便選則很多的Triplets(三元組)都解起來很簡單，Gradient descent(梯度下降法)就不會再做任何事，因為你的NN早已把問題都做對了，在這部分在《FaceNet: A Unified Embedding for Face Recognition and Clustering》這篇論文有更詳細的說明
