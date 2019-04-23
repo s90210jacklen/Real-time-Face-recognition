@@ -84,7 +84,7 @@ Triplet Loss定義在3張一組的圖片A、P、N上，則損失函數則可以�
 
 這個max函數的用意在於，若括號的左邊項 ≤ 0則損失就為零，若左邊項 ≥ 0則損失變成≥零；而我們是希望損失越小越好，所以只要左邊項≤ 0不管負多少，就能把損失推向零</br>
 
-- **Cost functionb (成本函數)**</br>
+- **Cost function (成本函數)**</br>
 將訓練資料裡一組三張圖片的損失加總起來作為整體NN的總成本(Total cost)，並利用Gradient descent(梯度下降法)來去訓練NN最小化成本
 ![cost Function](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/cost_function.png)
 
