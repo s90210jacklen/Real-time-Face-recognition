@@ -103,6 +103,7 @@ Triplet Loss定義在3張一組的圖片A、P、N上，則損失函數則可以�
 
 - **Cost function (成本函數)**</br>
 將訓練資料裡一組三張圖片的損失加總起來作為整體NN的總成本(Total cost)，並利用Gradient descent(梯度下降法)來去訓練NN最小化成本
+
 ![cost Function](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/cost_function.png)
 
 **Note:** 設定有10000張訓練圖片，分別來自1000個不同的人(每人約10張圖片)來構成我們的資料集，若每個人只有一張照片這樣就無法順利挑出Anchor與Positive，但是當NN訓練完成後就可以將系統用在One-shot Learning的問題，對於你想辨識的人，你可能只有他的一張照片也能順利辨識出此人。
