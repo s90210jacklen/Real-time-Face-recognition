@@ -1,5 +1,5 @@
 # Real-time Face recognition 即時人臉辨識 </br> (Using Keras Tensorflow and OpenCV)
-分別來自[《DeepFace: Closing the gap to human-level performance in face verification》(2014)](#Reference)與《FaceNet: A Unified Embedding for Face Recognition and Clustering》(2015)這兩篇paper提出的方法，而外利用OpenCV來擷取Webcam影像並使用其提供的Haar Cascade進行人臉檢測(Face Detection)
+分別來自[《DeepFace: Closing the gap to human-level performance in face verification》(2014)](#Reference)[1]與[《FaceNet: A Unified Embedding for Face Recognition and Clustering》(2015)](#Reference)[2]這兩篇paper提出的方法，而外利用OpenCV來擷取Webcam影像並使用其提供的Haar Cascade進行人臉檢測(Face Detection)
 
 在Face Recognition(人臉辨識)的問題上，通常會再進一步分成兩個種類 :
 - **Face Verification (人臉驗證) :** 
@@ -136,3 +136,7 @@ eg: With Tensorflow as backend
 
 # Reference
 - [1] [《DeepFace: Closing the gap to human-level performance in face verification》](https://research.fb.com/wp-content/uploads/2016/11/deepface-closing-the-gap-to-human-level-performance-in-face-verification.pdf)
+- [2][《FaceNet: A Unified Embedding for Face Recognition and Clustering》](https://arxiv.org/pdf/1503.03832.pdf)
+- [3][Face Detection in Python Using a Webcam](https://realpython.com/face-detection-in-python-using-a-webcam/)
+- [4][OpenFace pretrainde model](https://github.com/iwantooxxoox/Keras-OpenFace)
+- [5][Facenet](https://github.com/davidsandberg/facenet)
