@@ -139,4 +139,4 @@ eg: With Tensorflow as backend
 - [2][《FaceNet: A Unified Embedding for Face Recognition and Clustering》](https://arxiv.org/pdf/1503.03832.pdf)
 - [3][Face Detection in Python Using a Webcam](https://realpython.com/face-detection-in-python-using-a-webcam/)
 - [4][OpenFace pretrainde model](https://github.com/iwantooxxoox/Keras-OpenFace)
-- [5][Facenet](https://github.com/davidsandberg/facenet)
+- [5][Official FaceNet github repository](https://github.com/davidsandberg/facenet)
