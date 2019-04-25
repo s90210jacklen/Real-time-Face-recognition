@@ -134,3 +134,5 @@ eg: With Tensorflow as backend
   - 若不是則繼續偵測人臉並計算當下影像的編碼與距離
 ![output distance](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/output%20distance.png)  
 
+# Reference
+## [1] [《DeepFace: Closing the gap to human-level performance in face verification》](https://research.fb.com/wp-content/uploads/2016/11/deepface-closing-the-gap-to-human-level-performance-in-face-verification.pdf)
