@@ -43,7 +43,7 @@
 
 - **Siamese network (孿生網路)**</br>
 
-  - 使用Siamese network的架構來達成上述Similarity Function的效果，其實就是使用兩個常見的ConvNet的網路架構，這個兩個網路擁有相同的參數與權重，一樣經由Convolution(卷積)、Pooling(池化)、Fully connected layers(全連接層)最後得到一個帶有128個數字的特徵向量(feature vector)，而這個過程稱為encoding(編碼)
+  - 使用[《DeepFace: Closing the gap to human-level performance in face verification》(2014)](#Reference)[1]提出的Siamese network架構來達成上述Similarity Function的效果，其實就是使用兩個常見的ConvNet的網路架構，這個兩個網路擁有相同的參數與權重，一樣經由Convolution(卷積)、Pooling(池化)、Fully connected layers(全連接層)最後得到一個帶有128個數字的特徵向量(feature vector)，而這個過程稱為encoding(編碼)
   
 ![arch](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/arch.png)
    - 將兩張圖片(這裡稱x(1)與x(2))放入這兩個ConvNet後得出編碼後的兩個特徵向量(feature vector)
@@ -60,7 +60,7 @@
 
 
 - **Triplet Loss (三元組損失)**</br>
-在NN(Neural Network)的訓練中，都需要一個損失函數(Loss function)作為最小化(minimize)目標，而在Face recognition的應用中為了能夠學習參數來得到良好的encoding(編碼)，《FaceNet: A Unified Embedding for Face Recognition and Clustering》這篇論文提出一種有效的損失函數稱為**Triplet Loss (三元組損失)**
+在NN(Neural Network)的訓練中，都需要一個損失函數(Loss function)作為最小化(minimize)目標，而在Face recognition的應用中為了能夠學習參數來得到良好的encoding(編碼)，[《FaceNet: A Unified Embedding for Face Recognition and Clustering》(2015)](#Reference)[2]這篇論文提出一種有效的損失函數稱為**Triplet Loss (三元組損失)**
 
     - 在Triplet Loss中會有Anchor、Positive、Negative這三種照片
     - Positive為與Anchor**同個人**的照片
@@ -112,7 +112,7 @@ Triplet Loss定義在3張一組的圖片A、P、N上，則損失函數則可以�
   - 在訓練資料中，Triplets(三元組)樣本的選擇會是一個問題，因為在上述學習目標 **d(A,P) + α ≤ d(A,N)** 中，若只按照要求隨機的選擇同一個人的照片A與P
 和不同人照片A與N，則這個不等式很容易就被滿足，因為隨機挑兩個人的照片有很大的機率使得A與N差異遠大於A與P，這會使得NN無法學習有效的參數
 
-  - 因此，要建立訓練集的話必須挑選那種很難訓練的A,P和N，因為目標是讓所有Triplets(三元組)滿足**d(A,P) + α ≤ d(A,N)** 這個不等式，而很難訓練的Triplets(三元組)的意思就是你所挑選的A,P和N會讓 **d(A,P)≈ d(A,N)** ，如此一來NN在學習的時候就必須花更大的力氣嘗試讓**d(A,N)往上推**或讓**d(A,P)往下掉** ，推開彼此以達到相隔α的邊距，這樣的效果會讓你的學習演算法更效率；反之，若隨便選會導致很多的Triplets(三元組)都解起來很簡單，Gradient descent(梯度下降法)就不會再做任何事，因為你的NN早已把問題都做對了，在這部分在《FaceNet: A Unified Embedding for Face Recognition and Clustering》這篇論文有更詳細的說明
+  - 因此，要建立訓練集的話必須挑選那種很難訓練的A,P和N，因為目標是讓所有Triplets(三元組)滿足**d(A,P) + α ≤ d(A,N)** 這個不等式，而很難訓練的Triplets(三元組)的意思就是你所挑選的A,P和N會讓 **d(A,P)≈ d(A,N)** ，如此一來NN在學習的時候就必須花更大的力氣嘗試讓**d(A,N)往上推**或讓**d(A,P)往下掉** ，推開彼此以達到相隔α的邊距，這樣的效果會讓你的學習演算法更效率；反之，若隨便選會導致很多的Triplets(三元組)都解起來很簡單，Gradient descent(梯度下降法)就不會再做任何事，因為你的NN早已把問題都做對了，在這部分在[《FaceNet: A Unified Embedding for Face Recognition and Clustering》(2015)](#Reference)[2]這篇論文有更詳細的說明
   
 - **Face detection (人臉偵測)**</br>
 在人臉偵測的部分使用OpenCV的Haar Cascade分類器，選擇的為人臉分類器[haarcascade_frontalface_default.xml](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/haarcascade_frontalface_default.xml)
