@@ -66,7 +66,7 @@
     - Positive為與Anchor**同個人**的照片
     - Negative則為**不同人**的照片
     - 我們需要比較Anchor分別與Positive和Negative一組的兩對的照片
-    - Anchor與Positive的距離(編碼)較近，與Negative的距離(編碼)較遠
+    - 目標是希望Anchor與Positive的距離(編碼)較近，與Negative的距離(編碼)較遠
   
 也就是說，我們希望神經網路的參數所造成的編碼能夠使Anchor與Positive的距離**小於等於**Anchor與Negative的距離這樣的性質</br>
 
