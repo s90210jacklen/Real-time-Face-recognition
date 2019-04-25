@@ -134,7 +134,7 @@ eg: With Tensorflow as backend
   - 若不是則繼續偵測人臉並計算當下影像的編碼與距離
 ![output distance](https://github.com/s90210jacklen/Real-time-Face-recognition/blob/master/images/output%20distance.png)  
 
-# Reference
+# References
 - [1] [《DeepFace: Closing the gap to human-level performance in face verification》](https://research.fb.com/wp-content/uploads/2016/11/deepface-closing-the-gap-to-human-level-performance-in-face-verification.pdf)
 - [2][《FaceNet: A Unified Embedding for Face Recognition and Clustering》](https://arxiv.org/pdf/1503.03832.pdf)
 - [3][Face Detection in Python Using a Webcam](https://realpython.com/face-detection-in-python-using-a-webcam/)
