@@ -82,7 +82,7 @@
   def triplet_loss(y_true, y_pred, alpha = 0.3):
   
     anchor, positive, negative = y_pred[0], y_pred[1], y_pred[2]
-    計算anchor和positive的編碼(距離)
+    
     # Step 1: 計算anchor和positive的編碼(距離)
     pos_dist = tf.reduce_sum(tf.square(tf.subtract(anchor, positive)), axis=-1)
     # Step 2: 計算anchor和negative的編碼(距離)
